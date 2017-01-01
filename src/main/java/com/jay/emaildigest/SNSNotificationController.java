@@ -24,23 +24,19 @@ public class SNSNotificationController {
 
 	@RequestMapping("/greeting")
 	public String greeting() {
-		return "HI";
+		return "Hi Komoot";
 	}
 
 	@NotificationSubscriptionMapping
 	public void handleSubscriptionMessage(NotificationStatus status) throws IOException {
 		//We subscribe to start receive the message
 		status.confirmSubscription();
-		System.out.println("Test Subscription:");
-		LOG.info("Test Subscription:",status);
+		LOG.info("Subscription:",status);
 	}
 
 	@NotificationMessageMapping
 	public void handleNotificationMessage(@NotificationSubject String subject, @NotificationMessage String message) {
-		System.out.println("Test :" + subject + message);
-		LOG.info("Test handle:", subject, message);
-
-
+		LOG.info(String.format("Message handle Subject: %s, Message: %s", subject, message));
 	}
 
 	@NotificationUnsubscribeConfirmationMapping
