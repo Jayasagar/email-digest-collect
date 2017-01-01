@@ -52,7 +52,7 @@ dependencies {
     // Spring Rest template
     compile("org.springframework.boot:spring-boot-starter")
     compile("org.springframework.boot:spring-boot-starter-web")
-
+    compile("org.springframework.boot:spring-boot-starter-mail")
     compile("org.springframework.boot:spring-boot-starter-tomcat")
 
     // AWS Messaging

@@ -1,6 +1,8 @@
 package com.jay.emaildigest;
 
+import com.jay.emaildigest.repo.NotificationRepo;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.aws.messaging.config.annotation.NotificationMessage;
 import org.springframework.cloud.aws.messaging.config.annotation.NotificationSubject;
 import org.springframework.cloud.aws.messaging.endpoint.NotificationStatus;
@@ -35,9 +37,10 @@ public class SNSNotificationController {
 
 	@NotificationMessageMapping
 	public void handleNotificationMessage(@NotificationSubject String subject, @NotificationMessage String message) {
-		// ...
 		System.out.println("Test :" + subject + message);
 		LOG.info("Test handle:", subject, message);
+
+
 	}
 
 	@NotificationUnsubscribeConfirmationMapping
