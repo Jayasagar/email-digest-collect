@@ -17,23 +17,23 @@ import org.springframework.messaging.PollableChannel;
 @Configuration
 public class AppConfiguration {
 
-    @Bean
-    public AmazonSNS amazonSNS() {
-        return new AmazonSNSClient();
-    }
-
-    @Bean
-    public NotificationStatusHandlerMethodArgumentResolver notificationStatusHandlerMethodArgumentResolver() {
-        return new NotificationStatusHandlerMethodArgumentResolver(amazonSNS());
-    }
-
-    @Bean
-    public NotificationMessageHandlerMethodArgumentResolver notificationMessageHandlerMethodArgumentResolver() {
-        return new NotificationMessageHandlerMethodArgumentResolver();
-    }
-
-    @Bean
-    public NotificationSubjectHandlerMethodArgumentResolver notificationSubjectHandlerMethodArgumentResolver() {
-        return new NotificationSubjectHandlerMethodArgumentResolver();
-    }
+//    @Bean
+//    public AmazonSNS amazonSNS() {
+//        return new AmazonSNSClient();
+//    }
+//
+//    @Bean
+//    public NotificationStatusHandlerMethodArgumentResolver notificationStatusHandlerMethodArgumentResolver() {
+//        return new NotificationStatusHandlerMethodArgumentResolver(amazonSNS());
+//    }
+//
+//    @Bean
+//    public NotificationMessageHandlerMethodArgumentResolver notificationMessageHandlerMethodArgumentResolver() {
+//        return new NotificationMessageHandlerMethodArgumentResolver();
+//    }
+//
+//    @Bean
+//    public NotificationSubjectHandlerMethodArgumentResolver notificationSubjectHandlerMethodArgumentResolver() {
+//        return new NotificationSubjectHandlerMethodArgumentResolver();
+//    }
 }

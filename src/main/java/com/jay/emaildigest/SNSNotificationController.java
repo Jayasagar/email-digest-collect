@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/arn:aws:sns:us-west-2:292312626325:emaildigest")
+@RequestMapping("/sns/receive")
 public class SNSNotificationController {
 
 	private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(SNSNotificationController.class);
