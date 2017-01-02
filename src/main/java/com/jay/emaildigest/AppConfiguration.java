@@ -23,7 +23,7 @@ public class AppConfiguration {
     }
 
     @Bean
-    public NotificationStatusHandlerMethodArgumentResolver notificationStatusHandlerMethodArgumentResolver() {
+    public NotificationStatusHandlerMethodArgumentResolver notificationResolver() {
         return new NotificationStatusHandlerMethodArgumentResolver(amazonSNS());
     }
 
