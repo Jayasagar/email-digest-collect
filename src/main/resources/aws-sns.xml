@@ -5,7 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	   					   http://www.springframework.org/schema/beans/spring-beans.xsd
 	   					   http://www.springframework.org/schema/mvc
-                           http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+	   					   http://www.springframework.org/schema/mvc/spring-mvc.xsd
 	   					   http://www.springframework.org/schema/cloud/aws/messaging
 	   					   http://www.springframework.org/schema/cloud/aws/messaging/spring-cloud-aws-messaging.xsd">
 
@@ -15,6 +15,6 @@
         </mvc:argument-resolvers>
     </mvc:annotation-driven>
 
-    <aws-messaging:notification-argument-resolver id="notificationResolver" amazon-sns="amazonSns" />
+    <aws-messaging:notification-argument-resolver id="notificationResolver" />
 
 </beans>
