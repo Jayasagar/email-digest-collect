@@ -58,7 +58,7 @@ public class EmailService {
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
         simpleMailMessage.setFrom("swapnajagirapu@gmail.com");
         simpleMailMessage.setTo(to);
-        simpleMailMessage.setSubject(subject);
+        simpleMailMessage.setSubject("Komoot hourly digest!");
         simpleMailMessage.setText(body);
         this.mailSender.send(simpleMailMessage);
     }
