@@ -1,6 +1,16 @@
 # email-digest
 Hourly email digest
 
+#### How to run
+##### Run as a service
+* Create a file under /etc/init.d/emailDigestService and copy content from **emailDigestService.sh**
+* Modify the SERVICE_NAME, PATH_TO_JAR, and choose a PID_PATH_NAME
+* Execution permissions ex. sudo chmod +x /etc/init.d/emailDigestService
+* To run, sudo service mytestserv start/stop/restart 
+* Ref: http://www.jcgonzalez.com/linux-java-service-wrapper-example
+##### Run a jar
+* java -jar build/libs/email-digest-0.1.jar --spring.config.location=/home/ubuntu/email-digest/email-digest/application.properties
+
 #### Assumptions
 * Message has to processed based on timestamp/per user so that we can send email digest by timestamp
 * 
@@ -9,6 +19,7 @@ Hourly email digest
 * Send message from SNS to Ra for message backup as system may go down.
 * Poll maximum number of messages from SQS after every 1 hour 
 * Send an email
+
 ##### Current execution flow
 * Consume the message through HTTP(Spring Cloud AWS messaging) in backend
 * Write the message to MongoDB

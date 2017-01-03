@@ -25,8 +25,8 @@ public class EmailService {
     @Autowired
     private MailSender mailSender;
 
-    //@Scheduled(cron = "0 0 * * * *") //Every hour of every day
-    @Scheduled(cron = "0 * * * * *") // Every minute for testing
+    @Scheduled(cron = "0 0 * * * *") //Every hour of every day
+    //@Scheduled(cron = "0 0/15 * * * *") // Every 15 minutes for testing
     public void sendHourlyDigestEmail() {
         LOG.info(String.format("Hourly schedular, time now: %s", LocalDateTime.now().toString()));
 
