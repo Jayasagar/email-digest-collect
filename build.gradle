@@ -74,4 +74,5 @@ dependencies {
     //compile group: 'com.github.fakemongo', name: 'fongo', version: '2.0.9'
     //testCompile 'org.mongodb:mongo-java-driver:3.4.1'
     testCompile 'junit:junit:4.12'
+    testCompile "org.mockito:mockito-core:2.+"
 }
