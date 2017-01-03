@@ -1,6 +1,7 @@
 package com.jay.emaildigest;
 
 import com.jay.emaildigest.repo.NotificationRepo;
+import com.jay.emaildigest.service.NotificationService;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.aws.messaging.config.annotation.NotificationMessage;
@@ -20,6 +21,9 @@ import java.io.IOException;
 @RequestMapping("/sns/receive")
 public class SNSNotificationController {
 
+	@Autowired
+	private NotificationService notificationService;
+
 	private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(SNSNotificationController.class);
 
 	@RequestMapping("/greeting")
@@ -37,6 +41,7 @@ public class SNSNotificationController {
 	@NotificationMessageMapping
 	public void handleNotificationMessage(@NotificationSubject String subject, @NotificationMessage String message) {
 		LOG.info(String.format("Message handle Subject: %s, Message: %s", subject, message));
+		notificationService.saveNotification(message);
 	}
 
 	@NotificationUnsubscribeConfirmationMapping

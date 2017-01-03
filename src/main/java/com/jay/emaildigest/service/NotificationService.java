@@ -17,5 +17,7 @@ public class NotificationService {
     public void saveNotification(String message) {
         Notification notification = JSON.MAPPER.toObject(message.getBytes(), Notification.class);
         notificationRepo.save(notification);
+
+        LOG.info(String.format("Notification saved %s,%s", notification.getEmail(), notification.getName()));
     }
 }

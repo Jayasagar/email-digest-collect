@@ -3,6 +3,7 @@ package com.jay.emaildigest;
 import com.jay.emaildigest.model.Notification;
 import com.jay.emaildigest.repo.NotificationRepo;
 import com.jay.emaildigest.service.EmailService;
+import com.jay.emaildigest.service.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -28,13 +29,21 @@ public class Application {
 //        n.setMessage("Hi4");
 //        n.setTimestamp(LocalDateTime.now());
 //
-//        NotificationRepo notificationRepo = ctx.getBean(NotificationRepo.class);
-//        notificationRepo.save(n);
+        //NotificationRepo notificationRepo = ctx.getBean(NotificationRepo.class);
+        //notificationRepo.save(n);
 //
 //        List<Notification> notifications = notificationRepo.lastOneHourNotifications(LocalDateTime.now().minusMinutes(60), LocalDateTime.now());
 //        System.out.println(notifications);
 
         //EmailService emailService = ctx.getBean(EmailService.class);
        // emailService.sendMailMessage("jayasagar@gmail.com", "Test email", "Hi Test email");
+
+//        String message = "{\"timestamp\": \"2017-01-03T10:58:30\", \"message\": \"Bob sent you a message\", \"name\": \"Victor\", \"email\": \"x58d+Victor@komoot.de\"}";
+//        NotificationService notificationService = ctx.getBean(NotificationService.class);
+//
+//        notificationService.saveNotification(message);
+//
+//        List<Notification> notifications = notificationRepo.findAll();
+//        System.out.println(notifications);
     }
 }

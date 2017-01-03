@@ -39,8 +39,11 @@ Hourly email digest
 ##### Cons
 * Messaging order issue, need to put efforts!!
 
+### Local
+* java -jar build/libs/email-digest-0.1.jar --spring.config.location=~/Dev/gl/assignments/email-digest/application.properties
 
 ### References
+* https://github.com/FasterXML/jackson-modules-java8
 * http://engineering.pamediakopes.gr/2015/10/12/sns-a-love-and-hate-story/  
 * https://www.quora.com/What-is-the-difference-between-Kinesis-and-SQS-It-seems-capable-of-serving-similar-use-cases-apart-from-the-shards-and-partition-keys
  

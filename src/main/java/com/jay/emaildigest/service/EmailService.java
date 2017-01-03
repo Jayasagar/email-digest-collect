@@ -4,6 +4,7 @@ import com.jay.emaildigest.model.Notification;
 import com.jay.emaildigest.repo.NotificationRepo;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -19,8 +20,10 @@ import java.util.stream.Collectors;
 
 @Component
 public class EmailService {
-
     private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(EmailService.class);
+
+    @Value("${email.digest.email.from}")
+    private String from;
 
     @Autowired
     private NotificationRepo notificationRepo;
@@ -28,8 +31,8 @@ public class EmailService {
     @Autowired
     private MailSender mailSender;
 
-    //every hour of every day
-    @Scheduled(cron = "0 0 * * * *")
+    //@Scheduled(cron = "0 0 * * * *") //Every hour of every day
+    @Scheduled(cron = "0 * * * * *") // Every minute for testing
     public void sendHourlyDigest() {
         LocalDateTime now = LocalDateTime.now();
         LocalDateTime hourBack = LocalDateTime.now().minusHours(1);
@@ -47,16 +50,16 @@ public class EmailService {
         notificationByEmail.entrySet()
                 .stream()
                 .forEach(emailEntry -> {
-                    sendMailMessage(emailEntry.getKey(), emailEntry.getValue(), "");
+                    sendMailMessage(emailEntry.getKey(), emailEntry.getValue());
                 });
 
     }
 
-    public void sendMailMessage(String to, String body, String subject) {
+    private void sendMailMessage(String to, String body) {
         LOG.info(String.format("Sending email to %s, mesage %s", to, body));
 
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-        simpleMailMessage.setFrom("swapnajagirapu@gmail.com");
+        simpleMailMessage.setFrom(from);
         simpleMailMessage.setTo(to);
         simpleMailMessage.setSubject("Komoot hourly digest!");
         simpleMailMessage.setText(body);
