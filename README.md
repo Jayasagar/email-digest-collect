@@ -23,8 +23,9 @@ Hourly email digest
 ##### Current execution flow
 * Consume the message through HTTP(Spring Cloud AWS messaging) in backend
 * Write the message to MongoDB
-* Schedular poll all messages in timestamp range
-* Send email 
+
+#### Why MongoDB
+* Primary reason: If we get huge amount of data, then it would be easily scale across the cluster!!
 
 ### Solution using Flink vs MongoDB
 * https://github.com/okkam-it/flink-mongodb-test
