@@ -1,4 +1,4 @@
-package com.jay.emaildigest;
+package com.jay.emaildigest.batch;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;

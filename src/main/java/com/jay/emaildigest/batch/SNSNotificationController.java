@@ -1,7 +1,6 @@
-package com.jay.emaildigest;
+package com.jay.emaildigest.batch;
 
-import com.jay.emaildigest.repo.NotificationRepo;
-import com.jay.emaildigest.service.NotificationService;
+import com.jay.emaildigest.batch.service.NotificationService;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.aws.messaging.config.annotation.NotificationMessage;
@@ -10,9 +9,7 @@ import org.springframework.cloud.aws.messaging.endpoint.NotificationStatus;
 import org.springframework.cloud.aws.messaging.endpoint.annotation.NotificationMessageMapping;
 import org.springframework.cloud.aws.messaging.endpoint.annotation.NotificationSubscriptionMapping;
 import org.springframework.cloud.aws.messaging.endpoint.annotation.NotificationUnsubscribeConfirmationMapping;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;

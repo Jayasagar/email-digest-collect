@@ -26,6 +26,14 @@ Hourly email digest
 * Schedular poll all messages in timestamp range
 * Send email 
 
+### Solution using Flink vs MongoDB
+* https://github.com/okkam-it/flink-mongodb-test
+* http://robertmetzger.de/incubator-flink-website/news/2014/01/28/querying_mongodb.html
+* https://github.com/rmetzger/flink-mongodb-example/blob/master/src/main/java/org/apache/flink/Job.java
+
+### Solution using AWS EMR
+* 
+
 ### Solution using SNS vs SQS Subscription 
 ##### Pros
 * Messages can be backup for few days out of the box so that never worry about downtime.
@@ -49,6 +57,11 @@ Hourly email digest
 * 
 ##### Cons
 * Messaging order issue, need to put efforts!!
+
+#### External sort 
+* could be good candidate for processing huge data file
+
+
 
 ### Local
 * java -jar build/libs/email-digest-0.1.jar --spring.config.location=~/Dev/gl/assignments/email-digest/application.properties

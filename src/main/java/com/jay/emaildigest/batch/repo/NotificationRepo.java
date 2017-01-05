@@ -1,6 +1,6 @@
-package com.jay.emaildigest.repo;
+package com.jay.emaildigest.batch.repo;
 
-import com.jay.emaildigest.model.Notification;
+import com.jay.emaildigest.batch.model.Notification;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 

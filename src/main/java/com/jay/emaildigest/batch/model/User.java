@@ -1,4 +1,4 @@
-package com.jay.emaildigest.model;
+package com.jay.emaildigest.batch.model;
 
 import lombok.*;
 
