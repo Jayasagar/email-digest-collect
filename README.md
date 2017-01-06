@@ -44,7 +44,7 @@ Hourly email digest
 ### Solution using SNS vs SQS Subscription 
 ##### Pros
 * Messages can be backup for few days out of the box so that never worry about downtime.
-* 
+
 ##### Cons
 * Amazon SNS isn't currently compatible with SQS FIFO queues. For us order matters as per my understanding.
 * Not sure number of message can be processed by SQS, what if SNS produces huge messages and to consider we process once in an hour!
@@ -52,7 +52,7 @@ Hourly email digest
 ### Solution using Spring cloud AWS, SNS HTTP subscription and File System 
 ##### Pros
 * Messages can be streamed to file in specific format and we can streams back to process after every 1 hour
-* 
+
 ##### Cons
 * Hard to query
 * Distributed locking?
