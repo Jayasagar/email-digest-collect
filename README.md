@@ -4,6 +4,10 @@ Hourly email digest
 ### Test Urls
 * Ping url: http://ec2-52-210-211-77.eu-west-1.compute.amazonaws.com:8080/sns/receive/greeting
 
+### Installations
+* Install JDK 8
+* MongoDB
+
 #### How to run
 * Check out the code from https://github.com/Jayasagar/email-digest-collect
 * Run **/.gradlew build** It should produce executable jar under build/libs
