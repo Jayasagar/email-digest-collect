@@ -4,16 +4,19 @@ Hourly email digest
 ### Test Urls
 * Ping url: http://ec2-52-210-211-77.eu-west-1.compute.amazonaws.com:8080/sns/receive/greeting
 
-### Installations
+#### Installations
 * Install JDK 8
 * MongoDB
 
 #### How to run
 * Check out the code from https://github.com/Jayasagar/email-digest-collect
 * Run **/.gradlew build** It should produce executable jar under build/libs
-* Modify AWS accesskey and secret key the **application.properties** under project checkout root folder
+* Modify your AWS accesskey and secret key the **application.properties** which is located under project checkout root folder
 
 ##### Run as a service
+* sudo mkdir /var/email-digest
+* sudo cp $CHECK_OUT/build/libs/email-digest-0.1.jar /var/email-digest
+* sudo cp $CHECK_OUT/application.properties /var/email-digest
 * sudo ln -s /var/email-digest/email-digest-0.1.jar /etc/init.d/email-digest
 * sudo /etc/init.d/email-digest start|stop|restart
 
