@@ -1,31 +1,30 @@
 # email-digest
 Hourly email digest
 
-#### How to run
-##### Run as a service
-* Create a file under /etc/init.d/emailDigestService and copy content from **emailDigestService.sh**
-* Modify the SERVICE_NAME, PATH_TO_JAR, and choose a PID_PATH_NAME
-* Execution permissions ex. sudo chmod +x /etc/init.d/emailDigestService
-* To run, sudo service mytestserv start/stop/restart 
-* Ref: http://www.jcgonzalez.com/linux-java-service-wrapper-example
-##### Run a jar
-* java -jar build/libs/email-digest-0.1.jar --spring.config.location=/home/ubuntu/email-digest/email-digest/application.properties
+### Test Urls
+* Ping url: http://ec2-52-210-211-77.eu-west-1.compute.amazonaws.com:8080/sns/receive/greeting
 
-#### Assumptions
-* Message has to processed based on timestamp/per user so that we can send email digest by timestamp
-* 
+#### How to run
+* Check out the code from https://github.com/Jayasagar/email-digest-collect
+* Run **/.gradlew build** It should produce executable jar under build/libs
+* Modify AWS accesskey and secret key the **application.properties** under project checkout root folder
+
+##### Run as a service
+* sudo ln -s /var/email-digest/email-digest-0.1.jar /etc/init.d/email-digest
+* sudo /etc/init.d/email-digest start|stop|restart
+
+##### Run a jar
+* java -jar build/libs/email-digest-0.1.jar --spring.config.location= $CHECKOUT_ROOT_PATH/application.properties
 
 ### Current solution implemented using Spring cloud AWS, SNS HTTP subscription and MongoDB
-* Send message from SNS to Ra for message backup as system may go down.
-* Poll maximum number of messages from SQS after every 1 hour 
-* Send an email
+* Send message from SNS to MongoDB for temporary message backup as system may go down.
 
 ##### Current execution flow
-* Consume the message through HTTP(Spring Cloud AWS messaging) in backend
+* Consume the message through HTTP(Spring Cloud AWS messaging) from AWS SNS
 * Write the message to MongoDB
 
 #### Why MongoDB
-* Primary reason: If we get huge amount of data, then it would be easily scale across the cluster!!
+* Primary reason: If we get huge amount of data, we can spin up more instances and then it would be easily scale across the cluster!!
 
 ### Solution using Flink vs MongoDB
 * https://github.com/okkam-it/flink-mongodb-test
@@ -62,12 +61,11 @@ Hourly email digest
 #### External sort 
 * could be good candidate for processing huge data file
 
-
-
 ### Local
-* java -jar build/libs/email-digest-0.1.jar --spring.config.location=~/Dev/gl/assignments/email-digest/application.properties
+* java -jar build/libs/email-digest-0.1.jar --spring.config.location=/email-digest/application.properties
 
 ### References
+* http://docs.spring.io/spring-boot/docs/1.3.0.RC1/reference/htmlsingle/#deployment-script-customization-conf-file
 * https://github.com/FasterXML/jackson-modules-java8
 * http://engineering.pamediakopes.gr/2015/10/12/sns-a-love-and-hate-story/  
 * https://www.quora.com/What-is-the-difference-between-Kinesis-and-SQS-It-seems-capable-of-serving-similar-use-cases-apart-from-the-shards-and-partition-keys
