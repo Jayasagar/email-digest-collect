@@ -25,12 +25,10 @@ Hourly email digest
 
 ### Current solution implemented using Spring cloud AWS, SNS HTTP subscription and MongoDB
 * Send message from SNS to MongoDB for temporary message backup as system may go down.
-
-##### Current execution flow
 * Consume the message through HTTP(Spring Cloud AWS messaging) from AWS SNS
 * Write the message to MongoDB
 
-#### Why MongoDB
+#### MongoDB
 * Primary reason: If we get huge amount of data, we can spin up more instances and then it would be easily scale across the cluster!!
 
 ### Solution using Flink vs MongoDB
@@ -52,6 +50,7 @@ Hourly email digest
 ### Solution using Spring cloud AWS, SNS HTTP subscription and File System 
 ##### Pros
 * Messages can be streamed to file in specific format and we can streams back to process after every 1 hour
+* Will be fast reading
 
 ##### Cons
 * Hard to query
@@ -61,7 +60,7 @@ Hourly email digest
 ### Solution using Spring cloud AWS, SNS HTTP subscription and RabbitMQ 
 ##### Pros
 * No Db, so performance can be gain
-* 
+
 ##### Cons
 * Messaging order issue, need to put efforts!!
 
