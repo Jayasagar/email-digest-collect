@@ -23,6 +23,5 @@ public class Notification {
     private String name;
     private String message;
     private LocalDateTime timestamp;
-    private boolean isProcessed;
-
+    //private boolean isProcessed;
 }

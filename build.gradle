@@ -8,6 +8,7 @@ buildscript {
     dependencies {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE"
         classpath "io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE"
+        classpath('se.transmode.gradle:gradle-docker:1.2')
     }
 }
 
@@ -19,6 +20,7 @@ plugins {
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: "io.spring.dependency-management"
+apply plugin: 'docker'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -79,4 +81,16 @@ dependencies {
     //testCompile 'org.mongodb:mongo-java-driver:3.4.1'
     testCompile 'junit:junit:4.12'
     testCompile "org.mockito:mockito-core:2.+"
+}
+
+task buildDocker(type: Docker, dependsOn: build) {
+    push = true
+    applicationName = jar.baseName
+    dockerfile = file('src/main/docker/Dockerfile')
+    doFirst {
+        copy {
+            from jar
+            into stageDir
+        }
+    }
 }

@@ -25,7 +25,7 @@ public class SNSNotificationController {
 
 	@RequestMapping("/greeting")
 	public String greeting() {
-		return "Hi Komoot";
+		return "Hi Komoot, Test Endpoint. Kind of Ping :)";
 	}
 
 	@NotificationSubscriptionMapping
