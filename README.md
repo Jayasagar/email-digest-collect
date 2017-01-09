@@ -21,7 +21,8 @@ Hourly email digest
 * sudo /etc/init.d/email-digest start|stop|restart
 
 ##### Run a jar
-* java -jar build/libs/email-digest-0.1.jar --spring.config.location= $CHECKOUT_ROOT_PATH/application.properties
+* java -jar build/libs/email-digest-0.1.jar 
+--spring.config.location= $CHECKOUT_ROOT_PATH/application.properties
 
 ### Current solution implemented using Spring cloud AWS, SNS HTTP subscription and MongoDB
 * Send message from SNS to MongoDB for temporary message backup as system may go down.
