@@ -1,6 +1,6 @@
-package com.jay.emaildigest.batch;
+package com.jay.emaildigest.collect;
 
-import com.jay.emaildigest.batch.service.NotificationService;
+import com.jay.emaildigest.collect.service.NotificationService;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.aws.messaging.config.annotation.NotificationMessage;

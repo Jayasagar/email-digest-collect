@@ -1,6 +1,7 @@
 package com.jay.emaildigest.batch;
 
-import com.jay.emaildigest.batch.model.Notification;
+import com.jay.emaildigest.collect.JSON;
+import com.jay.emaildigest.collect.model.Notification;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.jay.emaildigest.batch.model;
+package com.jay.emaildigest.collect.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.EqualsAndHashCode;

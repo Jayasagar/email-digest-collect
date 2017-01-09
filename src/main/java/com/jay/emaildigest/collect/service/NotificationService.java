@@ -1,8 +1,8 @@
-package com.jay.emaildigest.batch.service;
+package com.jay.emaildigest.collect.service;
 
-import com.jay.emaildigest.batch.JSON;
-import com.jay.emaildigest.batch.model.Notification;
-import com.jay.emaildigest.batch.repo.NotificationRepo;
+import com.jay.emaildigest.collect.JSON;
+import com.jay.emaildigest.collect.model.Notification;
+import com.jay.emaildigest.collect.repo.NotificationRepo;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

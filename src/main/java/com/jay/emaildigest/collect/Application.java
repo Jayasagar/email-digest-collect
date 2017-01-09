@@ -1,4 +1,4 @@
-package com.jay.emaildigest.batch;
+package com.jay.emaildigest.collect;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
