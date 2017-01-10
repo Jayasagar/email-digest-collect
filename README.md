@@ -25,12 +25,11 @@ Hourly email digest
 --spring.config.location= $CHECKOUT_ROOT_PATH/application.properties
 
 ### Current solution implemented using Spring cloud AWS, SNS HTTP subscription and MongoDB
-* Send message from SNS to MongoDB for temporary message backup as system may go down.
 * Consume the message through HTTP(Spring Cloud AWS messaging) from AWS SNS
 * Write the message to MongoDB
 
 #### MongoDB
-* Primary reason: If we get huge amount of data, we can spin up more instances and then it would be easily scale across the cluster!!
+* Primary reason: If we get huge amount of data, we can spin up more instances of 'email-digest-collect' and then it would be easy to scale mongo across the cluster!!
 
 ### Solution using Flink vs MongoDB
 * https://github.com/okkam-it/flink-mongodb-test
